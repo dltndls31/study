@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAtom } from 'jotai'
 import { myTextAtom, editingPostIndexAtom } from '@/atoms/myText'
+import { toast } from 'react-toastify'
 
 const Post = () => {
     const [posts, setPosts] = useAtom(myTextAtom)
@@ -10,12 +11,12 @@ const Post = () => {
         const updatedPosts = [...posts]
         updatedPosts.splice(index, 1)
         setPosts(updatedPosts)
+        toast.success('성공적으로 게시글이 삭제')
     }
 
     const startEditing = (index) => {
         setEditingIndex(index)
     }
-
     return (
         <div className="... border-4 border-double border-indigo-600">
             {posts.map((post, index) => (
