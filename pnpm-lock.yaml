@@ -17,6 +17,9 @@ dependencies:
   autoprefixer:
     specifier: 10.4.15
     version: 10.4.15(postcss@8.4.29)
+  config:
+    specifier: ^3.3.9
+    version: 3.3.9
   eslint:
     specifier: 8.49.0
     version: 8.49.0
@@ -686,6 +689,13 @@ packages:
 
   /concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
+    dev: false
+
+  /config@3.3.9:
+    resolution: {integrity: sha512-G17nfe+cY7kR0wVpc49NCYvNtelm/pPy8czHoFkAgtV1lkmcp7DHtWCdDu+C9Z7gb2WVqa9Tm3uF9aKaPbCfhg==}
+    engines: {node: '>= 10.0.0'}
+    dependencies:
+      json5: 2.2.3
     dev: false
 
   /cross-spawn@7.0.3:
@@ -1706,6 +1716,12 @@ packages:
     hasBin: true
     dependencies:
       minimist: 1.2.8
+    dev: false
+
+  /json5@2.2.3:
+    resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
+    engines: {node: '>=6'}
+    hasBin: true
     dev: false
 
   /jsx-ast-utils@3.3.5:
