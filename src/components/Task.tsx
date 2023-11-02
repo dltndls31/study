@@ -9,6 +9,12 @@ const Task = () => {
     const [task, setTask] = useAtom(MyTaskAtom)
     const [, setEditingIndex] = useAtom(editingPostIndexAtom)
 
+    const taskItem = {
+        title: 'Task Title',
+        content: 'Task Content',
+        isCompleted: false,
+        date: '2023-10-30', // 날짜를 포함한 예시
+    }
     const TaskBox = ({ taskItem, index }) => {
         const [completed, setCompleted] = useState(taskItem.isCompleted)
 
