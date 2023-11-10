@@ -9,12 +9,6 @@ const Task = () => {
     const [task, setTask] = useAtom(MyTaskAtom)
     const [, setEditingIndex] = useAtom(editingPostIndexAtom)
 
-    const taskItem = {
-        title: 'Task Title',
-        content: 'Task Content',
-        isCompleted: false,
-        date: '2023-10-30', // 날짜를 포함한 예시
-    }
     const TaskBox = ({ taskItem, index }) => {
         const [completed, setCompleted] = useState(taskItem.isCompleted)
 
@@ -40,7 +34,10 @@ const Task = () => {
                     onChange={TaskCompleted}
                     className="ml-2 mr-2"
                 />
-                <span className={completed ? 'line-through' : ''}>
+                {/*$ 기호는 문자열 템플릿 리터럴(string template literal)*/}
+                <span
+                    className={`font-bold ${completed ? 'line-through' : ''}`}
+                >
                     {taskItem.title}
                 </span>
             </div>
@@ -59,19 +56,31 @@ const Task = () => {
     }
 
     return (
-        <div className="... border-4 border-double border-indigo-600">
+        <div className="... rounded border-4 border-double border-black">
             {task.map((taskItem, index) => (
                 <div key={index}>
                     <TaskBox taskItem={taskItem} index={index} />
                     <DatePicker
-                        selected={new Date(taskItem.date)} // taskItem.date를 Date 객체로 변환
+                        selected={new Date(taskItem.date)}
                         readOnly
-                        dateFormat="yyyy-MM-dd" // 포맷 수정
+                        dateFormat="yyyy-MM-dd"
+                        className="font-bold"
                     />
-
                     <p>{taskItem.content}</p>
-                    <button onClick={() => DeleteTask(index)}>삭제</button>
-                    <button onClick={() => StartEditing(index)}>수정</button>
+                    <div className="flex justify-end">
+                        <button
+                            onClick={() => StartEditing(index)}
+                            className="rounded-full bg-green-500 px-4 py-2 font-bold text-white hover:bg-green-700"
+                        >
+                            수정
+                        </button>
+                        <button
+                            onClick={() => DeleteTask(index)}
+                            className="rounded-full bg-green-500 px-4 py-2 font-bold text-white hover:bg-green-700"
+                        >
+                            삭제
+                        </button>
+                    </div>
                 </div>
             ))}
         </div>
